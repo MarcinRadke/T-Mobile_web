@@ -1,4 +1,4 @@
-package StepDefinitions;
+package com.example.E2E.utils;
 
 import com.codeborne.selenide.SelenideElement;
 

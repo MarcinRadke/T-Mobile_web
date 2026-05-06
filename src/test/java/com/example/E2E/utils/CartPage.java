@@ -1,4 +1,4 @@
-package StepDefinitions;
+package com.example.E2E.utils;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;

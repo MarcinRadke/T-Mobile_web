@@ -1,4 +1,5 @@
-package StepDefinitions;
+package com.example.E2E;
+import com.example.E2E.utils.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
