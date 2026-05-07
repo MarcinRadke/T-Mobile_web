@@ -14,4 +14,8 @@ public class CartPage {
     public void verifyDeviceInCart(String deviceName) {
         $$("h2, h3").findBy(text(deviceName)).shouldBe(visible);
     }
+
+    public String getPriceCart(){
+        return $("span[data-qa='BKT_Activation']").shouldBe(visible).getText();
+    }
 }

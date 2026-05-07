@@ -14,12 +14,18 @@ public class ShopPage {
             return;
         }
 
-        while ($$("button, a[role='button']").findBy(exactText("Załaduj więcej")).exists()) {
+        int attemptCounter = 0;
+        while ($$("button, a[role='button']").findBy(exactText("Załaduj więcej")).exists() || attemptCounter < 50) {
             $$("button, a[role='button']").findBy(exactText("Załaduj więcej")).scrollIntoView(true).click();
             sleep(2000);
             if (!$$("a[aria-label*='" + deviceName + "']").isEmpty()) {
                 break;
             }
+            attemptCounter++;
+        }
+
+        if (attemptCounter == 50){
+            Assert.fail("Device '" + deviceName + "' not found after loading more items 50 times");
         }
 
         if ($$("a[aria-label*='" + deviceName + "']").isEmpty()) {

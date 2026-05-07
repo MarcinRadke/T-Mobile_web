@@ -1,9 +1,10 @@
-package com.example.E2E;
+package com.example.E2E.TestScenarios;
 import com.example.E2E.utils.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 
 public class ShopSteps {
 
@@ -43,7 +44,13 @@ public class ShopSteps {
 
     @And("I click on the {string} button")
     public void addToCart(String string) {
+        String productPagePrice = productPage.getPriceProduct();
         productPage.addToCart();
+        String productCartPrice = cartPage.getPriceCart();
+        if (!productPagePrice.equals(productCartPrice)){
+            Assert.fail("Price mismatch: Product page price is '" + productPagePrice + "' but cart price is '"
+                    + productCartPrice + "'");
+        }
     }
 
     @And("I go to main page")
