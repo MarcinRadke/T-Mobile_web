@@ -14,7 +14,9 @@ public class HomePage {
 
     public void acceptCookies(){
         SelenideElement acceptCookiesBtn = $$("button").findBy(text("Akceptuję"));
-        acceptCookiesBtn.shouldBe(visible).click();
+        if (acceptCookiesBtn.exists()) {
+            acceptCookiesBtn.shouldBe(visible).click();
+        }
     }
 
     public void openHomePage(String url) {
