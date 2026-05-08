@@ -1,6 +1,6 @@
 package com.example.E2E.utils;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.sleep;
 
@@ -16,7 +16,7 @@ public class ShopPage {
 
         int attemptCounter = 0;
         while ($$("button, a[role='button']").findBy(exactText("Załaduj więcej")).exists() || attemptCounter < 50) {
-            $$("button, a[role='button']").findBy(exactText("Załaduj więcej")).scrollIntoView(true).click();
+            $$("button, a[role='button']").findBy(exactText("Załaduj więcej")).scrollIntoView(false).click();
             sleep(2000);
             if (!$$("a[aria-label*='" + deviceName + "']").isEmpty()) {
                 break;
